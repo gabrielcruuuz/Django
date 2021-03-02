@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Home Page
+{% endblock %}
+
+{% block main %}
+    Seja bem vindo {{ funcionario }}
+
+    {%if funcionario.empresa %}
+        <a href="">Editar empresa</a>
+
+    {% else %}
+        <a href="">Criar empresa</a>
+    {% endif %}
+
+{% endblock %}
