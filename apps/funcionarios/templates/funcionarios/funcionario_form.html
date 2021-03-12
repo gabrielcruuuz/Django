@@ -13,15 +13,17 @@
 
     <br/>
 
-    <!--PASSANDO ID DO FUNCIONARIO QUE FOI CLICADO-->
-    <a href="{% url 'create_documento' object.id %}" class="btn btn-success"> Adicionar Documento </a>
+    {% if object %}
+         <!--PASSANDO ID DO FUNCIONARIO QUE FOI CLICADO-->
+        <a href="{% url 'create_documento' object.id %}" class="btn btn-success"> Adicionar Documento </a>
 
-    <!--LISTAM DE TODOS OS DOCUMENTOS ATRELADOS-->
-    {% for documento in object.documento_set.all %}
+        <!--LISTAM DE TODOS OS DOCUMENTOS ATRELADOS-->
+        {% for documento in object.documento_set.all %}
+            <a href="{{documento.arquivo.url}}"> {{documento}} </a> <br/>
+        {%endfor%}
 
-        <a href="{{documento.arquivo.url}}"> {{documento}} </a> <br/>
+    {% endif %}
 
-
-    {%endfor%}
+    
 
 {%endblock%}
