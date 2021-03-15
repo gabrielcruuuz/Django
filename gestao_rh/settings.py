@@ -13,7 +13,8 @@ SECRET_KEY = '###lg_!+8!r+5%1ksnb_bp-l#6&w3xe3+jfz+yyud^nzy5gr$h'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+# IP maquina virtual AWS
+ALLOWED_HOSTS = ['3.131.36.201/']
 
 
 # Application definition
