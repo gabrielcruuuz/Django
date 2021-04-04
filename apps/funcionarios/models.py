@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.db.models import Sum
 from django.urls import reverse
 
 from apps.departamentos.models import Departamento
@@ -21,3 +22,14 @@ class Funcionario(models.Model):
 
     def get_absolute_url(self):
         return reverse('list_funcionarios')
+
+    # CRIANDO VARIAVEL PRA USAR NO TEMPLATE
+    @property
+    def total_hora_extra(self):
+        # Somando os valores das horas (tipo um =+ ) direto da lista
+        total = self.registrohoraextra_set.filter(utilizada=False).aggregate(Sum('horas'))['horas__sum']
+
+        # IF TOTAL == NONEH RETORNA 0
+        return total or 0
+
+
