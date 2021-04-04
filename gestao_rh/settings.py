@@ -14,7 +14,7 @@ SECRET_KEY = '###lg_!+8!r+5%1ksnb_bp-l#6&w3xe3+jfz+yyud^nzy5gr$h'
 DEBUG = True
 
 # IP maquina virtual AWS
-ALLOWED_HOSTS = ['3.131.36.201', 'localhost']
+ALLOWED_HOSTS = ['localhost', '3.16.200.68']
 
 
 # Application definition
