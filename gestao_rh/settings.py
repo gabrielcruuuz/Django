@@ -32,6 +32,7 @@ INSTALLED_APPS = [
     'apps.documentos',
     'apps.registro_hora_extra',
     'apps.core',
+    'apps.app_antiga',
     'bootstrapform',
     'rest_framework',
     'rest_framework.authtoken',
@@ -73,12 +74,9 @@ WSGI_APPLICATION = 'gestao_rh.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
+
+# USANDO MAIS DE 1 DB NA APLICAÇÃO
+DATABASE_ROUTERS = ['gestao_rh.ConexoesDB.ConexoesDB']
 
 
 # Password validation
@@ -124,31 +122,17 @@ STATICFILES_DIRS = [
 ]
 
 STATIC_ROOT = os.path.join(BASE_DIR, "assets")
-
 MEDIA_URL = '/media/'
-
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 # URL DE REDIRECIONAMENTO APOS O LOGIN PADRAO DO DJANGO
 LOGIN_REDIRECT_URL = 'home'
-
 LOGOUT_REDIRECT_URL = 'login'
 
+# CONFIGURAÇÕES DO CELERY
 CELERY_RESULT_BACKEND = 'django-db'
-CELERY_BROKER_URL = 'redis://localhost:6379'
 CELERY_ACCEPT_CONTENT = ['application/json']
 CELERY_RESULT_SERIALIZER = 'json'
 CELERY_TASK_SERIALIZER = 'json'
 
-
-# CONFIGURAÇÕES PARA ENVIO DE EMAIL
-
-EMAIL_USE_TLS = True
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587
-EMAIL_HOST_USER = 'gabriel.cruz.oliveira2@gmail.com'
-EMAIL_HOST_PASSWORD = 'czkczmbdclyqifxw'
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-
-
-
+from .local_settings import *

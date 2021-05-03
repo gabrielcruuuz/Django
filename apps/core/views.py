@@ -20,6 +20,7 @@ def home(request):
 
 
 def celery(request):
+    # EXECUTANDO FUNÇÃO DO CELERY COM DELAY()
     send_relatorio.delay()
     return HttpResponse('Tarefa incluida na fila do Celery')
 
