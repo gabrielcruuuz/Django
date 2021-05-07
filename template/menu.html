@@ -1,0 +1,41 @@
+ <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <a class="navbar-brand" href="{% url 'home' %}">Gestão RH</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse"
+          data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+          aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="#">Empresa</a>
+      </li>
+       <li class="nav-item">
+        <a class="nav-link" href="{% url 'list_departamentos' %}">Departamentos</a>
+      </li>
+       <li class="nav-item">
+        <a class="nav-link" href="{% url 'list_funcionarios' %}" >Funcionarios</a>
+       </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Banco de Horas
+        </a>
+
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="{% url 'list_hora_extra' %}">Listar banco de horas</a>
+          <a class="dropdown-item" href="{% url 'exportar_excel' %}">Exportar Excel</a>
+          <a class="dropdown-item" href="{% url 'create_hora_extra' %}">Novo</a>
+        </div>
+      </li>
+    </ul>
+
+    <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'logout' %}">Sair</a>
+        </li>
+    </ul>
+
+  </div>
+</nav>

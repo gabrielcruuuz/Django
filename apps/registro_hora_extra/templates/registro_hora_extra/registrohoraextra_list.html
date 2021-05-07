@@ -2,8 +2,6 @@
 
 {% block main %}
 
-    Banco de horas: <br/>
-
     {% for hora_extra in object_list %}
 
         <a href="{% url 'update_hora_extra_base' hora_extra.id %}">

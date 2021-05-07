@@ -7,31 +7,88 @@
 {% block main %}
     <div class="row">
         <div class="col-sm">
-            Seja bem vindo {{ funcionario }}
+            <a href="{% url 'list_funcionarios' %}" style="color:black;" >
+                <div class="card">
+                    <h3>
+                        <i class="fa fa-users"></i>
+                        Funcionarios
 
-            <a href="{% url 'logout' %}">Logout</a>
+                    </h3>
+                </div>
+            </a>
+
         </div>
 
         <div class="col-sm">
-             {%if funcionario.empresa %}
-                <a href="{% url 'edit_empresa' funcionario.empresa.id %}">Editar empresa</a>
+            <a href="{% url 'list_hora_extra' %}" style="color:black;" >
+                <div class="card">
+                    <h3>
+                        <i class="fa fa-clock-o"></i>
+                        Banco de horas
 
-            {% else %}
-                <a href="{% url 'create_empresa' %}">Criar empresa</a>
-            {% endif %}
+                    </h3>
+                </div>
+            </a>
+
         </div>
 
+<!--        <div class="col-sm">-->
+<!--            <a href="{% url 'list_funcionarios' %}" style="color:black;" >-->
+<!--                <div class="card">-->
+<!--                    <h3>-->
+<!--                        <i class="fa fa-book"></i>-->
+<!--                        Documentos-->
+
+<!--                    </h3>-->
+<!--                </div>-->
+<!--            </a>-->
+
+<!--        </div>-->
+    </div>
+
+    <div class="row">
         <div class="col-sm">
-            <a href="{% url 'list_funcionarios' %}">Gerenciar funcionarios</a>
-            <a href="{% url 'list_departamentos' %}">Gerenciar departamentos</a>
-            <a href="{% url 'list_hora_extra' %}">Gerenciar banco de horas</a>
+            <div class="card">
+                  <div class="card-header">
+                      <h5 class="card-title">Funcionarios</h5>
+                  </div>
 
+                <div class="card-body">
+                    <ul>
+                        <li>N. Funcionarios : {{ total_funcionarios }}</li>
+                        <li>N. Funcionarios de ferias : {{ total_funcionarios_ferias }}</li>
+                        <li>N. Funcionarios sem documento: {{ total_funcionarios_doc_pendente }}</li>
+                    </ul>
+                </div>
+            </div>
         </div>
 
+           <div class="col-sm ">
+            <div class="card bg-primary text-white">
+                <div class="card-header">
+                      <h5 class="card-title">Banco de horas</h5>
+                  </div>
+                <div class="card-body">
+                    <ul>
+                         <li>Horas extras utilizadas: {{ total_horas_extras_utilizadas }}</li>
+                        <li>Horas extras pendentes: {{ total_horas_extras_pendente }}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
 
-
-
-
+<!--          <div class="col-sm">-->
+<!--            <div class="card">-->
+<!--                <div class="card-body">-->
+<!--                    <h5 class="card-title">Documentos</h5>-->
+<!--                    <ul>-->
+<!--                        <li></li>-->
+<!--                        <li></li>-->
+<!--                        <li></li>-->
+<!--                    </ul>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
     </div>
 
 
